@@ -6,7 +6,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="feature/googleNews/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="feature/googleNews/src/main/res/layout/detailed_news_fragment.xml" value="0.14583333333333334" />
+        <entry key="feature/googleNews/src/main/res/layout/fragment_main_news.xml" value="0.14583333333333334" />
         <entry key="feature/googleNews/src/main/res/layout/fragment_splash.xml" value="0.18" />
+        <entry key="feature/googleNews/src/main/res/layout/news_item.xml" value="0.25" />
       </map>
     </option>
   </component>
