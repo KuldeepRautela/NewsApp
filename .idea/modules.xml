@@ -4,8 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NewsApp.iml" filepath="$PROJECT_DIR$/.idea/modules/NewsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NewsApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NewsApp.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/NewsApp.feature.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/NewsApp.feature.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/googleNews/NewsApp.feature.googleNews.unitTest.iml" />
     </modules>
   </component>
 </project>
