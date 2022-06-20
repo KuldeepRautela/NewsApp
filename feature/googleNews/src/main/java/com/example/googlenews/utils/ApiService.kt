@@ -5,6 +5,6 @@ import com.example.googlenews.utils.Constants.apiKey
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("/top-headlines?sources=google-news-in&apiKey=$apiKey")
-    suspend fun getNews():NewsResponse
+    @GET("everything?q=tesla&from=2022-05-14&sortBy=publishedAt&apiKey=$apiKey")
+    suspend fun getNews(): NewsResponse
 }
