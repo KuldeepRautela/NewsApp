@@ -24,7 +24,7 @@ object GoogleNewsModule {
     @Provides
     fun provideRetrofitInstance(okHttpClient: OkHttpClient):Retrofit
     = Retrofit.Builder()
-        .baseUrl("https://newsapi.org/v2/")
+        .baseUrl("https://newsdata.io/api/1/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

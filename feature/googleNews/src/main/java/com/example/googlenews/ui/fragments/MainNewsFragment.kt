@@ -3,6 +3,7 @@ package com.example.googlenews.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import com.example.googlenews.R
 import com.example.googlenews.databinding.FragmentMainNewsBinding
@@ -14,6 +15,7 @@ import com.example.googlenews.utils.GoogleNewsComponent
 import com.example.googlenews.utils.NewsViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -36,6 +38,8 @@ class MainNewsFragment : BaseFragment<FragmentMainNewsBinding>(R.layout.fragment
         googleNewsViewModel =
             ViewModelProvider(this, viewModelFactory).get(GoogleNewsViewModel::class.java)
         requestBinding().apply {
+            vm = googleNewsViewModel
+            lifecycleOwner = viewLifecycleOwner
             initUi()
         }
         getNewsData()
@@ -43,23 +47,33 @@ class MainNewsFragment : BaseFragment<FragmentMainNewsBinding>(R.layout.fragment
 
     private fun FragmentMainNewsBinding.initUi(){
         newsRv.adapter = adapter
+        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                googleNewsViewModel.searchText.value = query
+                return true
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return true
+            }
+
+        })
     }
 
     private fun getNewsData() {
         CoroutineScope(Dispatchers.IO).launch {
-            googleNewsViewModel.getNews()
             googleNewsViewModel.newsResponse().collect {
                 when (it) {
                     is ResponseState.Loading -> Log.e("Loading", "data from server")
                     is ResponseState.Success -> {
-                        Log.e("data", "${it.data}")
-                        it.data?.articles?.let { it1 -> adapter.submitList(it1) }
+                        MainScope().launch {
+                            it.data?.results?.let { it1 -> adapter.submitList(it1) }
+                        }
                     }
                     is ResponseState.Error -> Log.e("error", "${it.errorMsg}")
                 }
             }
         }
     }
-
-
 }

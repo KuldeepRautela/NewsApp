@@ -4,5 +4,5 @@ import com.example.googlenews.jetpack.models.NewsDto.NewsResponse
 import com.example.googlenews.jetpack.models.NewsDto.ResponseState
 
 interface GoogleNewsRepository {
-    suspend fun getNewsFromServer() : ResponseState<NewsResponse>
+    suspend fun getNewsFromServer(query:String) : ResponseState<NewsResponse>
 }

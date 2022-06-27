@@ -7,24 +7,28 @@
             type="com.example.googlenews.jetpack.viewmodels.NewsItemViewModel" />
     </data>
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="?attr/colorOnBackgroundCard"
+        android:backgroundTint="@color/whiteVariant"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp">
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <ImageView
                 android:id="@+id/newsIv"
                 bind_urlToThumbnail="@{vm.thumbnailUrl}"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:scaleType="centerCrop"
                 android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +44,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/newsIv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/newsIv"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/newsIv" />
 
             <TextView
                 android:id="@+id/newsDescriptionTv"

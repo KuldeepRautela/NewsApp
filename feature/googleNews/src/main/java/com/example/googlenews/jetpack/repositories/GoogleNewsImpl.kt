@@ -6,9 +6,9 @@ import com.example.googlenews.utils.ApiService
 import javax.inject.Inject
 
 class GoogleNewsImpl @Inject constructor(private val apiService: ApiService):GoogleNewsRepository {
-    override suspend fun getNewsFromServer(): ResponseState<NewsResponse> =
+    override suspend fun getNewsFromServer(query:String): ResponseState<NewsResponse> =
     try{
-        ResponseState.Success(apiService.getNews())
+        ResponseState.Success(apiService.getNews(query))
     }catch(exception:Exception){
         ResponseState.Error(exception.localizedMessage)
     }

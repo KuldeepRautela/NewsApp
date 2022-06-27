@@ -6,9 +6,11 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 object BindingUtil {
-
+    @JvmStatic
     @BindingAdapter(value = ["bind_urlToThumbnail"],requireAll = true)
-    fun bindThumbnailFromUrl(view: ImageView, url:String){
-     Glide.with(view).load(Uri.parse(url)).into(view)
+    fun bindThumbnailFromUrl(view: ImageView, url:String?){
+        url?.let {
+            Glide.with(view).load(Uri.parse(it)).into(view)
+        }
     }
 }

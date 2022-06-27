@@ -2,24 +2,20 @@ package com.example.googlenews.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.googlenews.R
 import com.example.googlenews.databinding.NewsItemBinding
-import com.example.googlenews.jetpack.models.NewsDto.Article
-import com.example.googlenews.jetpack.models.NewsDto.NewsResponse
+import com.example.googlenews.jetpack.models.NewsDto.Result
 import com.example.googlenews.jetpack.viewmodels.NewsItemViewModel
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
-    private val newsList = arrayListOf<Article>()
+    private val newsList = arrayListOf<Result>()
 
     class ItemViewHolder(private val _binding: NewsItemBinding) :
         RecyclerView.ViewHolder(_binding.root) {
         private val newsItemViewModel = NewsItemViewModel()
-        fun bind(article: Article) {
-            newsItemViewModel.init(article)
+        fun bind(Result: Result) {
+             newsItemViewModel.init(Result)
             _binding.vm = newsItemViewModel
             _binding.executePendingBindings()
         }
@@ -27,15 +23,10 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder(
-            DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.news_item,
-                parent,
-                false
-            )
+          NewsItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         )
 
-    fun submitList(newList : List<Article>){
+    fun submitList(newList : List<Result>){
         val diffCallback = DiffCallback(oldList = newsList, newList)
         val diffCourses = DiffUtil.calculateDiff(diffCallback)
         newsList.clear()
@@ -49,7 +40,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ItemViewHolder>() {
 
     override fun getItemCount(): Int = newsList.size
 
-    class DiffCallback(private val oldList: List<Article>, private val newList: List<Article>) :
+    class DiffCallback(private val oldList: List<Result>, private val newList: List<Result>) :
         DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="colorOnBackground" format="color"/>
     <attr name="colorOnBackgroundCard" format="color"/>
 </resources>

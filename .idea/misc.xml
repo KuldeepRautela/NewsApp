@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyPersonalProjects/NewsApp/feature/googleNews/src/main/res/layout/fragment_main_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/MyPersonalProjects/NewsApp/feature/googleNews/src/main/res/layout/news_item.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="feature/googleNews/src/main/res/layout/activity_main.xml" value="0.1" />
