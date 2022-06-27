@@ -62,18 +62,8 @@ class MainNewsFragment : BaseFragment<FragmentMainNewsBinding>(R.layout.fragment
     }
 
     private fun getNewsData() {
-        CoroutineScope(Dispatchers.IO).launch {
-            googleNewsViewModel.newsResponse().collect {
-                when (it) {
-                    is ResponseState.Loading -> Log.e("Loading", "data from server")
-                    is ResponseState.Success -> {
-                        MainScope().launch {
-                            it.data?.results?.let { it1 -> adapter.submitList(it1) }
-                        }
-                    }
-                    is ResponseState.Error -> Log.e("error", "${it.errorMsg}")
-                }
-            }
+        googleNewsViewModel.searchResults.observeForever { newsList ->
+            adapter.submitList(newsList)
         }
     }
 }
